@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :religions
   has_many :interest_ships
+  has_many :belief_ships
 end
