@@ -2,4 +2,5 @@ class Religion < ActiveRecord::Base
   belongs_to :user
   has_many :posts
   has_many :users
+  has_many :reference_ships
 end
