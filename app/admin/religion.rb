@@ -1,4 +1,5 @@
 ActiveAdmin.register Religion do
+  permit_params :name, :description, :image
 
 
   # See permitted parameters documentation:
