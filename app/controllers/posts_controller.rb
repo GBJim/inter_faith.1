@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
 
   before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
-
+  before_action :validate_user, only: [:edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -88,6 +88,17 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def validate_user
+      unless @post.user.id == current_user.id
+        begin
+          redirect_to(:back, :status => 301, flash: {error: "Sorry. You can not edit or delete this story because you are not the author"})
+
+        rescue ActionController::RedirectBackError
+          redirect_to(root_path)
+        end
+      end
+    end
+    
     def set_post
       @post = Post.find(params[:id])
     end

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140818092015) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -24,9 +27,9 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "belief_ships", force: true do |t|
     t.integer  "religion_id"
@@ -53,8 +56,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "belief_ships", ["religion_id"], name: "index_belief_ships_on_religion_id"
-  add_index "belief_ships", ["user_id"], name: "index_belief_ships_on_user_id"
+  add_index "belief_ships", ["religion_id"], name: "index_belief_ships_on_religion_id", using: :btree
+  add_index "belief_ships", ["user_id"], name: "index_belief_ships_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "interest_ships", force: true do |t|
     t.integer  "religion_id"
@@ -74,8 +77,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "interest_ships", ["religion_id"], name: "index_interest_ships_on_religion_id"
-  add_index "interest_ships", ["user_id"], name: "index_interest_ships_on_user_id"
+  add_index "interest_ships", ["religion_id"], name: "index_interest_ships_on_religion_id", using: :btree
+  add_index "interest_ships", ["user_id"], name: "index_interest_ships_on_user_id", using: :btree
 
   create_table "modification_histories", force: true do |t|
     t.datetime "date"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "modification_histories", ["post_id"], name: "index_modification_histories_on_post_id"
+  add_index "modification_histories", ["post_id"], name: "index_modification_histories_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -96,8 +99,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["religion_id"], name: "index_posts_on_religion_id"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["religion_id"], name: "index_posts_on_religion_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "reference_ships", force: true do |t|
     t.integer  "religion_id"
@@ -106,8 +109,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "reference_ships", ["post_id"], name: "index_reference_ships_on_post_id"
-  add_index "reference_ships", ["religion_id"], name: "index_reference_ships_on_religion_id"
+  add_index "reference_ships", ["post_id"], name: "index_reference_ships_on_post_id", using: :btree
+  add_index "reference_ships", ["religion_id"], name: "index_reference_ships_on_religion_id", using: :btree
 
   create_table "religions", force: true do |t|
     t.string   "name"
@@ -118,7 +121,7 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "religions", ["user_id"], name: "index_religions_on_user_id"
+  add_index "religions", ["user_id"], name: "index_religions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -136,8 +139,8 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.string   "photo"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "votable_id"
@@ -151,7 +154,7 @@ ActiveRecord::Schema.define(version: 20140818092015) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end

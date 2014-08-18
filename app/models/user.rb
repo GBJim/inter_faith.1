@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
   has_many :comments
-  has_many :religions
-  has_many :interest_ships
-  has_many :belief_ships
+  has_many :religions, :through => :belief_ships 
+  has_many :belief_ships 
+  has_many :interests
 end
