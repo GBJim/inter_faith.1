@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818092015) do
+ActiveRecord::Schema.define(version: 20140819071642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20140818092015) do
 
   add_index "belief_ships", ["religion_id"], name: "index_belief_ships_on_religion_id", using: :btree
   add_index "belief_ships", ["user_id"], name: "index_belief_ships_on_user_id", using: :btree
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "body"

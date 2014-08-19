@@ -1,20 +1,25 @@
 <%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => Post %></h1>
+<div class="page-header post-title">
+  <h1><%=@post.title%></h1>
 </div>
 
-<div class="fieldset">
-  <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
-      <dd><pre class="prettyprint"><%= @post.title %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:body) %></dt>
-      <dd><pre class="prettyprint"><%= @post.body %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
-      <dd><pre class="prettyprint"><%= @post.image %></pre></dd>
-  </dl>
+<div class="jumbotron post-body">
+<%=raw @post.body %>
 </div>
+Leaves your comment in here:
 
-<div class="form-group">
+
+<%=form_for [@post, @comment] do |f|%>
+<div class="form-group container">
+<%=f.text_area :body, :class => 'text-field form-control col-md-2'%>
+ </div>
+   <%= f.submit nil, :class => 'btn btn-primary' %>
+<%end%>
+<% @post.comments.each do |c| %>
+<p><%= c.body %></p>
+  <%end%>
+
+<div class="form-group"  data-no-turbolink>
   <%= link_to t('.back', :default => t("helpers.links.back")),
               posts_path, :class => 'btn btn-default'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

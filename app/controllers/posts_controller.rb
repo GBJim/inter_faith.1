@@ -7,6 +7,10 @@ class PostsController < ApplicationController
   before_action :validate_user, only: [:edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
+
+
+
+
   def index
     @posts = Post.all
   end
@@ -14,6 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /posts/new
@@ -76,13 +81,15 @@ class PostsController < ApplicationController
     raise "No direction parameter specified to #vote action." unless direction
 
     # Make sure the direction is valid
-    unless ["like", "bad"].member? direction
+    unless ["like", "dislike"].member? direction
       raise "Direction '#{direction}' is not a valid direction for vote method."
     end
 
     @post.vote_by voter: current_user, vote: direction
-
-    redirect_to action: :index
+    respond_to do |format|
+      format.html { redirect_to action: :index}
+      format.json { render json: { count: @post.get_likes.size } }
+    end
   end
 
 

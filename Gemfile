@@ -55,3 +55,10 @@ gem 'bootstrap-sass-extras'
 group :development do
   gem 'better_errors'
 end
+
+
+# my own gems:
+gem 'ckeditor_rails'
+gem 'jquery-turbolinks'
+gem 'betterlorem'
+gem 'font-awesome-rails'
