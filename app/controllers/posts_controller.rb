@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
   end
 
   # GET /posts/1
@@ -76,7 +77,7 @@ class PostsController < ApplicationController
   def vote
 
     direction = params[:direction]
-
+    gon.likes = 123
     # Make sure we've specified a direction
     raise "No direction parameter specified to #vote action." unless direction
 
@@ -84,11 +85,13 @@ class PostsController < ApplicationController
     unless ["like", "dislike"].member? direction
       raise "Direction '#{direction}' is not a valid direction for vote method."
     end
-
+   
     @post.vote_by voter: current_user, vote: direction
+  
     respond_to do |format|
-      format.html { redirect_to action: :index}
-      format.json { render json: { count: @post.get_likes.size } }
+      
+      format.js
+
     end
   end
 

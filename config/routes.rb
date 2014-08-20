@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :comments
   #->Prelang (voting/acts_as_votable)
   member do
-    patch "vote"
+    get "vote"
   end
 end
 

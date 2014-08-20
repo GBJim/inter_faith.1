@@ -8,12 +8,12 @@
 <hr class ="divider">
 
 <%=link_to "Read more", post, :class => "btn, btn-primary btn-lg pull-right"%>
-<%=link_to vote_post_path(post, :direction => "like"), remote: true, method: :patch , class: "vote" do%>
+<%=link_to vote_post_path(post, :direction => "like"), remote: true, :data =>{:text => 'Hello'}, class: "vote" do%>
 <i class="fa fa-thumbs-up pull-right">
 <%= post.get_likes.size %>
 </i> 
 <%end%>
-<%=link_to vote_post_path(post, :direction => "dislike"), remote: true, method: :patch , class: "vote" do%>
+<%=link_to vote_post_path(post, :direction => "dislike"), remote: true, :data =>{:text => 'Hello'}, class: "vote" do%>
 <i class="fa fa-thumbs-down pull-right">
 	<%= post.get_dislikes.size %>
 </i> <%end%>
