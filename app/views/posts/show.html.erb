@@ -5,19 +5,30 @@
 
 <div class="jumbotron post-body">
 <%=raw @post.body %>
+<%=link_to vote_post_path(@post, :direction => "like"), remote: true do%>
+<%= content_tag(:i,  @post.get_likes.size, class: "fa fa-thumbs-up pull-right", data: {:likes => @post.id}) %>
+<%end%>
+
+<%=link_to vote_post_path(@post, :direction => "dislike"), remote: true do%>
+<%= content_tag(:i,  @post.get_dislikes.size, class: "fa fa-thumbs-down pull-right", data: {:dislikes => @post.id}) %>
+ <%end%>
+<%=link_to "#" do%><i class="fa fa-comment pull-right">13</i> <%end%>
 </div>
 Leaves your comment in here:
 
 
-<%=form_for [@post, @comment] do |f|%>
+<%=form_for [@post, @comment], remote: true do |f|%>
 <div class="form-group container">
 <%=f.text_area :body, :class => 'text-field form-control col-md-2'%>
  </div>
    <%= f.submit nil, :class => 'btn btn-primary' %>
 <%end%>
+<div class = "comments-container">
 <% @post.comments.each do |c| %>
 <p><%= c.body %></p>
   <%end%>
+</div>
+
 
 <div class="form-group"  data-no-turbolink>
   <%= link_to t('.back', :default => t("helpers.links.back")),

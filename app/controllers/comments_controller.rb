@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
 		@comment.user = current_user
 
 		if @comment.save
-			redirect_to :back, notice: 'Comment was successfully created.'
+			respond_to do |format|
+			#redirect_to :back, notice: 'Comment was successfully created.'
+			format.js
+			end
 		else
 			redirect_to root_path 
 		end

@@ -1,1 +1,4 @@
-alert(gon.likes)
+//alert("<%= @post.get_likes.size%>")
+$("[data-likes = <%= @post.id%>]").html("<%= @post.get_likes.size%>");
+
+$("[data-dislikes = <%= @post.id%>]").html("<%= @post.get_dislikes.size%>");

@@ -77,7 +77,7 @@ class PostsController < ApplicationController
   def vote
 
     direction = params[:direction]
-    gon.likes = 123
+
     # Make sure we've specified a direction
     raise "No direction parameter specified to #vote action." unless direction
 
@@ -89,8 +89,8 @@ class PostsController < ApplicationController
     @post.vote_by voter: current_user, vote: direction
   
     respond_to do |format|
-      
       format.js
+
 
     end
   end
