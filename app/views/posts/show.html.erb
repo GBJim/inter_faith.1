@@ -14,6 +14,14 @@
  <%end%>
 <%=link_to "#" do%><i class="fa fa-comment pull-right">13</i> <%end%>
 </div>
+
+<% @post.tag_list.each do |list| %>
+<div class = "tags-container">
+<p><%=list%></p>
+<p>hey</p>
+</div>
+<%end%>
+
 Leaves your comment in here:
 
 

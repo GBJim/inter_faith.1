@@ -5,5 +5,6 @@ class Post < ActiveRecord::Base
   has_many :modification_histories
   has_many :comments
   validates :user_id, presence: true
-  acts_as_votable 
+  acts_as_votable
+  acts_as_taggable 
 end

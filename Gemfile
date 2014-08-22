@@ -54,6 +54,7 @@ gem 'bootstrap-sass-extras'
 
 group :development do
   gem 'better_errors'
+  gem 'jazz_hands'
 end
 
 
@@ -62,4 +63,5 @@ gem 'ckeditor_rails'
 gem 'jquery-turbolinks'
 gem 'betterlorem'
 gem 'font-awesome-rails'
-gem 'gon'
+gem 'will_paginate'
+gem 'acts-as-taggable-on'
