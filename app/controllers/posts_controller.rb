@@ -12,7 +12,13 @@ class PostsController < ApplicationController
 
 
   def index
+    @religions = Religion.all
+
+    if params[:religion_id].present?
+      @posts = Religion.find(params[:religion_id]).posts.paginate(:page => params[:page], :per_page => 5)
+    else
     @posts = Post.paginate(:page => params[:page], :per_page => 5)
+  end
 
   end
 
@@ -53,7 +59,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { #render plain: @post.tag_list 
+        format.html { #render plain: params
         redirect_to @post, notice: 'Post was successfully updated.' 
       }
         format.json { render :show, status: :ok, location: @post }
@@ -117,6 +123,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :image, :user_id, :religion_id, :tag_list)
+      params.require(:post).permit(:title, :body, :image, :user_id, :tag_list, religion_ids: [] )
     end
 end

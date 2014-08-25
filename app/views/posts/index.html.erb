@@ -1,11 +1,17 @@
 <%- model_class = Post -%>
 <div class="page-header ">
-  <h1><%=t '.title', :default => Post %></h1>
+  <h1>interFaith</h1>
 </div>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_post_path,
-            :class => 'btn btn-primary' %>
+<h2 class ="text-center" >Let's Talk About Religions</h2>
+<%=link_to "All", posts_path%>
+<%@religions.each do |religion|%>
+<%=link_to religion.name, posts_path(:religion_id => religion.id )%>
+<%end%>
 
+
+<div data-no-turbolink>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'  %>
+</div>
 <div id = "my-posts" class="container-liquid waterfall">
   <%= render @posts%>
 </div>

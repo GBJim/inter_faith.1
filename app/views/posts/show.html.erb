@@ -3,6 +3,11 @@
   <h1><%=@post.title%></h1>
 </div>
 
+<div class = "religions-container">
+  <%@post.religions.each do |religion|%>
+    <p><%=religion.name%></p>
+  <%end%>
+</div>
 <div class="jumbotron post-body">
 <%=raw @post.body %>
 <%=link_to vote_post_path(@post, :direction => "like"), remote: true do%>
@@ -12,7 +17,7 @@
 <%=link_to vote_post_path(@post, :direction => "dislike"), remote: true do%>
 <%= content_tag(:i,  @post.get_dislikes.size, class: "fa fa-thumbs-down pull-right", data: {:dislikes => @post.id}) %>
  <%end%>
-<%=link_to "#" do%><i class="fa fa-comment pull-right">13</i> <%end%>
+<%=link_to "#" do%><%= content_tag(:i,  @post.comments.size, class: "fa fa-comments pull-right") %></i> <%end%>
 </div>
 
 <% @post.tag_list.each do |list| %>

@@ -1,4 +1,12 @@
 <%= form_for @post, :html => { :class => 'form-horizontal form-model' } do |f| %>
+
+  <div class = "form_group">
+       <%= f.label :religions, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+        <%= f.collection_check_boxes :religion_ids, Religion.all, :id, :name, :class => "form-control"%>
+    </div>
+  </div>
+
   <div class="form-group">
     <%= f.label :title, :class => 'control-label col-md-2' %>
     <div class="col-md-10">

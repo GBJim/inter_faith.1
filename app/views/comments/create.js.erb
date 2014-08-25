@@ -1,2 +1,3 @@
 $(".text-field").val("");
-$(".comments-container").append("<p><%= @comment.body%></p>")
+$(".comments-container").append("<p><%= @comment.body%></p>");
+$(".fa-comments").html("<%=@post.comments.size%>");
