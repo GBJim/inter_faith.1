@@ -15,9 +15,11 @@ class PostsController < ApplicationController
     @religions = Religion.all
 
     if params[:religion_id].present?
-      @posts = Religion.find(params[:religion_id]).posts.paginate(:page => params[:page], :per_page => 5)
+      #@posts = Religion.find(params[:religion_id]).posts.paginate(:page => params[:page], :per_page => 5)
+      @posts = Post.all
     else
-    @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    #@posts = Post.paginate(:page => params[:page], :per_page => 50)
+    @posts = Post.all
   end
 
   end

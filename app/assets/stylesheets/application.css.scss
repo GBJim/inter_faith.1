@@ -13,7 +13,17 @@
 *= require_tree .
 *= stub active_admin
 *= require font-awesome
+
+*= require 'masonry/basic'
+*= require 'masonry/centered'
+*= require 'masonry/fluid'
+*= require 'masonry/gutters'
+*= require 'masonry/infinitescroll'
+*= require 'masonry/right-to-left'
+*= require 'masonry/transitions'
+
 *= require_self
+
 */
 @import "bootstrap_configuration";
 

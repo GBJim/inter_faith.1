@@ -32,3 +32,25 @@ div.post-body{
 .post-title{
 	padding-left:10px;
 }
+
+#masonry-container {
+  background: #FFF;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+div.box{
+	border-radius: 20px;
+	box-shadow: 3px 3px 5px #888888;
+
+}

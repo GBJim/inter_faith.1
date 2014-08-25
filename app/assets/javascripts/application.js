@@ -18,3 +18,13 @@
 //= require posts
 //= require_tree .
 //= require ckeditor-jquery
+//= require masonry/jquery.masonry
+
+$(function() {
+  return $('#masonry-container').imagesLoaded(function() {
+    return $('#masonry-container').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    });
+  });
+});
