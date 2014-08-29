@@ -19,6 +19,8 @@
 //= require_tree .
 //= require ckeditor-jquery
 //= require masonry/jquery.masonry
+//= require jquery.leanModal.min
+
 
 $(function() {
   return $('#masonry-container').imagesLoaded(function() {
@@ -28,3 +30,14 @@ $(function() {
     });
   });
 });
+
+var modal;
+modal = function() {
+  return $("#modal_trigger").leanModal({
+    top: 200,
+    overlay: 0.6,
+    closeButton: ".modal_close"
+  });
+};
+
+$(document).ready(modal);

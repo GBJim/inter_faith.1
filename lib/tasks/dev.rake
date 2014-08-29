@@ -15,7 +15,9 @@ namespace :dev  do
 	desc "Lorem ipsum"
 	task :seed => :environment do
 
-		50.times { |i| Post.create(title: "Post #{i}", body: BetterLorem.p(20, false, false)) }
+		50.times { |i| x = Post.create(title: "Post #{i}", body: BetterLorem.p(20, false, false), user_id:  User.first.id)
+
+						 }
 
 
 
