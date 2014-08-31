@@ -12,9 +12,9 @@
 <div data-no-turbolink>
 <%= link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'  %>
 </div>
-<div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix"   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".box" }'>
+<div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix"   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".post-box" }'>
   <%= render @posts%>
 </div>
 <div id="infinite-scrolling">
-  <%#= will_paginate %>
+  <%= will_paginate %>
 </div>

@@ -1,9 +1,25 @@
-div.post-box{
-	background-color: rgb(46,204,113);
+
+
+
+.comment-box{
+	background-color: #3498db;
+	margin-top:5px;
+	margin-left: 20px;
+	border-radius: 10px;
+	width: 600px;
+}
+p.comment-time{
+	padding-right:10px;
+}
+p.comment-body{
+	margin-left:20px;
+}
+
+div.box{
+	background-color: #1abc9c;
 	border-radius: 20px;
-	margin:20px;
-
-
+	
+	
 	box-shadow: 10px 10px 5px #888888;
 	}
 
@@ -55,7 +71,7 @@ div.box{
 
 }
 
-body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
+body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px;}
 
 #lean_overlay {
     position: fixed;

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   #->Prelang (scaffolding:rails/scope_to_user)
-  before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy,:vote]
 
   before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
   before_action :validate_user, only: [:edit, :update, :destroy]
@@ -15,11 +15,11 @@ class PostsController < ApplicationController
     @religions = Religion.all
 
     if params[:religion_id].present?
-      #@posts = Religion.find(params[:religion_id]).posts.paginate(:page => params[:page], :per_page => 5)
-      @posts = Post.all
+      @posts = Religion.find(params[:religion_id]).posts.paginate(:page => params[:page], :per_page => 10)
+      #@posts = Post.all
     else
-    #@posts = Post.paginate(:page => params[:page], :per_page => 50)
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 10)
+    #@posts = Post.all
   end
 
   end
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comments = @post.comments
     @comment = Comment.new
   end
 

@@ -2,11 +2,15 @@
 
 
 <div class="page-header">
-  <h3 class ="post-title"><%= post.title %></h3>
+  <h3 class ="post-title"><%=link_to post.title, post %></h3>
 </div>
-<%= raw post.body%>
+<%=raw post.body.truncate(300)%>
 <hr class ="divider">
+<%post.tag_list.each do |tag|%>
+#<%=tag%>,
+<%end%>
 
+<hr class ="divider">
 <%=link_to "Read more", post, :class => "btn, btn-primary btn-lg pull-right"%>
 <%=link_to vote_post_path(post, :direction => "like"), remote: true do%>
 <%= content_tag(:i,  post.get_likes.size, class: "fa fa-thumbs-up pull-right", data: {:likes => post.id}) %>

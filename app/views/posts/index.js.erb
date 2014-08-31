@@ -1,5 +1,10 @@
+$newPosts = '<%=j render @posts%>' 
 
-$('#my-posts').append('<%= j render @posts %>');
+$("#masonry-container").imagesLoaded(function(){
+  $("#masonry-container").append($newPosts).masonry('reload');
+});
+
+
 <% if @posts.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @posts %>');
 <% else %>

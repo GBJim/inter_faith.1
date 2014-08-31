@@ -37,9 +37,7 @@ Leaves your comment in here:
    <%= f.submit nil, :class => 'btn btn-primary' %>
 <%end%>
 <div class = "comments-container">
-<% @post.comments.each do |c| %>
-<p><%= c.body %></p>
-  <%end%>
+<%=render @comments%>
 </div>
 
 
