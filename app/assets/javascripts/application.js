@@ -38,6 +38,29 @@ modal = function() {
     overlay: 0.6,
     closeButton: ".modal_close"
   });
+
 };
 
+
+
+var clickRegistration;
+clickRegistration = (function () {
+    // Calling Login Form
+    $("#sign-up_trigger").click(function () {
+        $(".user_login").hide();
+        $(".user_register").show();
+        return false;
+    });
+      $(".login-window").click(function () {
+        $(".user_login").show();
+        $(".user_register").hide();
+        return false;
+    });
+
+
+   
+
+  })
+
 $(document).ready(modal);
+$(document).ready(clickRegistration);

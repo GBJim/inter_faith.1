@@ -26,10 +26,12 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Login", "#modal", class: "login-window",id: "modal_trigger" , remote: true%></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Login/Sign Up", "#modal", class: "login-window",id: "modal_trigger" , remote: true%></li>
+        
         <% end %>
       <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
+
+
