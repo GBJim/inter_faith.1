@@ -7,7 +7,7 @@
 <%=raw post.body.truncate(300)%>
 <hr class ="divider">
 <%post.tag_list.each do |tag|%>
-#<%=tag%>,
+<%=link_to "#"+tag, posts_path(:tag => tag )%>
 <%end%>
 
 <hr class ="divider">

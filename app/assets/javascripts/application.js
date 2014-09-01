@@ -13,14 +13,14 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require ckeditor-jquery
 //= require turbolinks
 //= require bootstrap
-//= require posts
-//= require_tree .
-//= require ckeditor-jquery
 //= require masonry/jquery.masonry
 //= require jquery.leanModal.min
-
+//= require pagination
+//= require active_admin
+//= require posts
 
 
 $(function() {

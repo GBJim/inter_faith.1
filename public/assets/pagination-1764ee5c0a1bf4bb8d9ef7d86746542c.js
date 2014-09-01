@@ -1,0 +1,1 @@
+(function(){jQuery(function(){return $("#infinite-scrolling").size()>0?void $(window).on("scroll",function(){var i;return i=$(".pagination .next_page").attr("href"),i&&$(window).scrollTop()>$(document).height()-$(window).height()-60?$.getScript(i):void 0}):void 0})}).call(this);

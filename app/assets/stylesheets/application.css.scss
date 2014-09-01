@@ -13,7 +13,7 @@
 *= require_tree .
 *= stub active_admin
 *= require font-awesome
-
+*= require bootstrap_configuration
 *= require 'masonry/basic'
 *= require 'masonry/centered'
 *= require 'masonry/fluid'
@@ -25,7 +25,7 @@
 *= require_self
 
 */
-@import "bootstrap_configuration";
+
 
 @import "bootstrap";
 

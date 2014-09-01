@@ -68,6 +68,6 @@ gem 'font-awesome-rails'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'masonry-rails'
-gem 'rails_12factor', group: :production
+
 
 ruby "2.1.1"

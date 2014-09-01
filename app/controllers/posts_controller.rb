@@ -15,13 +15,15 @@ class PostsController < ApplicationController
     @religions = Religion.all
 
     if params[:religion_id].present?
-      @posts = Religion.find(params[:religion_id]).posts.paginate(:page => params[:page], :per_page => 10)
+      @posts = Religion.find(params[:religion_id]).posts
       #@posts = Post.all
+    elsif params[:tag].present?
+      @posts = Post.tagged_with(params[:tag])
     else
-    @posts = Post.paginate(:page => params[:page], :per_page => 10)
+      @posts = Post
     #@posts = Post.all
-  end
-
+    end
+    @posts = @posts.paginate(:page => params[:page], :per_page => 20).order('updated_at DESC')
   end
 
   # GET /posts/1

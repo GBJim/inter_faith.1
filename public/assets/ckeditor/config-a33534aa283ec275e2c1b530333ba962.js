@@ -1,0 +1,1 @@
+(function(){CKEDITOR.editorConfig=function(t){return t.toolbar="Basic",t.removePlugins="elementspath",t.toolbar=[["Bold","Italic","Underline","Font","StrikeThrough","-","Undo","Redo","-","Cut","Copy","Paste"],["NumberedList","BulletedList","-","JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock"]],!0}}).call(this);
