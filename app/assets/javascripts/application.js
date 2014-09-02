@@ -15,12 +15,12 @@
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require turbolinks
-//= require bootstrap
 //= require masonry/jquery.masonry
 //= require jquery.leanModal.min
 //= require pagination
 //= require active_admin
 //= require posts
+//= require bootstrap
 
 
 $(function() {

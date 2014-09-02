@@ -3,16 +3,16 @@
   <h1>interFaith</h1>
 </div>
 <h2 class ="text-center" >Let's Talk About Religions</h2>
-<%=link_to "All", posts_path%>
-<%@religions.each do |religion|%>
-<%=link_to religion.name, posts_path(:religion_id => religion.id )%>
-<%end%>
-
+<div class = "container statistics">
+<h3 class ="text-right"><%=Post.all.size%> Topics</h3>
+<h3 class ="text-right"><%=User.all.size%> Users</h3>
+</div>
+<%=render "religions"%>
 
 <div data-no-turbolink>
 <%= link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'  %>
 </div>
-<div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix"   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".post-box" }'>
+<div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix"   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".box" }'>
   <%= render @posts%>
 </div>
 <div id="infinite-scrolling">
