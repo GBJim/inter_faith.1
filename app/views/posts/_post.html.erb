@@ -1,6 +1,11 @@
 <div class ="jumbothron box col3">
-
-
+<ul class = "icon-list">
+<%post.religions.each do |religion| %>
+	
+	<li class="icon"><%=image_tag religion.name+".svg", :size => "20x20"%></li>
+<%end%>
+</ul>
+<hr>
 <div class="page-header">
   <h3 class ="post-title"><%=link_to post.title, post %></h3>
 </div>

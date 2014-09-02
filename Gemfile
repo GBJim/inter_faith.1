@@ -70,4 +70,4 @@ gem 'acts-as-taggable-on'
 gem 'masonry-rails'
 
 
-ruby "2.1.1"
+#ruby "2.1.1"

@@ -1,17 +1,17 @@
 <div class = "container">
 	<div class = "row">
-		<div class = "col-md-4">
+		<div class = "col-md-2">
 			<%=link_to posts_path do%>
-				<%=image_tag "All.jpg", :size => "100x100"%>
+				<%=image_tag "All.svg", :size => "100x100"%>
 				<br>
 				All
 			<%end%>
 		</div>
 
 		<%@religions.each do |religion|%>
-		<div class = "col-md-4">
+		<div class = "col-md-2">
 			<%=link_to posts_path(:religion_id => religion.id ) do %> 
-				<%=image_tag religion.name+".jpg", :size => "100x100"%>
+				<%=image_tag religion.name+".svg", :size => "100x100"%>
 				<br>
 			<%=religion.name%>
 		
