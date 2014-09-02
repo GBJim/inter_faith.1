@@ -5,7 +5,7 @@
 
 <div class = "religions-container">
   <%@post.religions.each do |religion|%>
-    <p><%=religion.name%></p>
+    <%=image_tag religion.name+".svg", :size => "30x30"%>
   <%end%>
 </div>
 <div class="jumbotron post-body">

@@ -1,9 +1,11 @@
-$newPosts = '<%=j render @posts%>' 
+
+$newPosts = '<%=j render @posts%>'
+setTimeout(function(){
 
 $("#masonry-container").imagesLoaded(function(){
   $("#masonry-container").append($newPosts).masonry('reload');
 });
-
+},1000);
 
 <% if @posts.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @posts %>');

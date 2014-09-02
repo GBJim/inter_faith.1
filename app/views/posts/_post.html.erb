@@ -1,18 +1,22 @@
-<div class ="jumbothron box col3">
+<div class ="jumbothron box col4">
 <ul class = "icon-list">
-<%post.religions.each do |religion| %>
-	
-	<li class="icon"><%=image_tag religion.name+".svg", :size => "20x20"%></li>
-<%end%>
-</ul>
+
+<div class = "row">
+  <%post.religions.each do |religion|%>
+  	<div class ="col-md-2">
+    <%=image_tag religion.name+".svg", :size => "30x30"%>
+  	</div>
+  <%end%>
+</div>
 <hr>
 <div class="page-header">
-  <h3 class ="post-title"><%=link_to post.title, post %></h3>
+  <h4 class ="post-title"><%=link_to post.title, post %></h4>
 </div>
 <%=raw post.body.truncate(300)%>
 <hr class ="divider">
+
 <%post.tag_list.each do |tag|%>
-<%=link_to "#"+tag, posts_path(:tag => tag )%>
+<%=link_to "#"+tag+"  ", posts_path(:tag => tag ), :class => "tag"%>
 <%end%>
 
 <hr class ="divider">

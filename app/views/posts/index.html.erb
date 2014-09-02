@@ -1,8 +1,9 @@
-<%- model_class = Post -%>
+
 <div class="page-header ">
   <h1>interFaith</h1>
 </div>
 <h2 class ="text-center" >Let's Talk About Religions</h2>
+<h2 class ="text-center" ></h2>
 <div class = "container statistics">
 <h3 class ="text-right"><%=Post.all.size%> Topics</h3>
 <h3 class ="text-right"><%=User.all.size%> Users</h3>
@@ -13,9 +14,9 @@
 <div data-no-turbolink>
 <%= link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'  %>
 </div>
-<div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix"   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".box" }'>
+<div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix">
   <%= render @posts%>
 </div>
-<div id="infinite-scrolling">
+<div id="infinite-scroll">
   <%= will_paginate %>
 </div>
