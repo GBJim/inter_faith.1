@@ -17,12 +17,16 @@ class PostsController < ApplicationController
     if params[:religion_id].present?
       @posts = Religion.find(params[:religion_id]).posts
       #@posts = Post.all
+    elsif params[:q].present?
+      @posts = Post.search(params[:q]).result
     elsif params[:tag].present?
       @posts = Post.tagged_with(params[:tag])
     else
       @posts = Post
     #@posts = Post.all
     end
+    @posts_size = @posts.all.size
+    @users_size = User.all.size
     @posts = @posts.paginate(:page => params[:page], :per_page => 10).order('updated_at DESC')
   end
 

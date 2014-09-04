@@ -68,6 +68,6 @@ gem 'font-awesome-rails'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'masonry-rails'
-
+gem 'ransack'
 
 #ruby "2.1.1"

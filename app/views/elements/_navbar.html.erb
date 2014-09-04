@@ -7,8 +7,22 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to "interFaith", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
+    <%= link_to defined?(root_path) ? root_path : "#", class: "navbar-brand" do%>
+     
+      <%=image_tag "All.svg", :size => "50x50",:class => "inter-faith"%> <p class ="inter-faith">interFaith</p>
+     
+    <%end%>
+
   </div>
+  
+  <%= search_form_for ransack, :html => {:class =>"navbar-form navbar-right form-group"} do |f| %>
+  <%= f.search_field :body_cont, :class => 'form-control'%>
+  <%= button_tag type: "submit", class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-search"></i>
+<% end %>
+  
+
+<% end %>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="navbar-collapse-1">
@@ -26,7 +40,7 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Login/Sign Up", "#modal", class: "login-window",id: "modal_trigger" , remote: true%></li>
+          <li><%= link_to "Login/Sign Up", "#modal", class: "login-window navbar-right ",id: "modal_trigger" , remote: true%></li>
         
         <% end %>
       <% end %>

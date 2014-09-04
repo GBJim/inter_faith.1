@@ -4,7 +4,7 @@
 			<%=link_to posts_path do%>
 				<%=image_tag "All.svg", :size => "100x100"%>
 				<br>
-				All
+				<p class ="religion-name">All</p>
 			<%end%>
 		</div>
 
@@ -13,7 +13,7 @@
 			<%=link_to posts_path(:religion_id => religion.id ) do %> 
 				<%=image_tag religion.name+".svg", :size => "100x100"%>
 				<br>
-			<%=religion.name%>
+			<p class ="religion-name"><%=religion.name%></p>
 		
 		<%end%>
 		</div>	
