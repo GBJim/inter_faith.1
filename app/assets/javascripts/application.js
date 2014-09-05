@@ -64,5 +64,13 @@ clickRegistration = (function () {
 
   })
 
+function triggerLogin() {
+  $(".login-window").click();
+         
+}
+
+
+
 $(document).ready(modal);
 $(document).ready(clickRegistration);
+

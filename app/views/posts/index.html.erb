@@ -1,5 +1,5 @@
 
-<div class="page-header ">
+<div class="page-header index-header ">
 <h2 class ="text-center welcome-text" >Let's Talk About Religions</h2>
 <h3 class ="welcome-text text-center">A Place for people discuss cross-religion topics </h3>
 
@@ -7,14 +7,14 @@
 <h4 class ="text-right"><%=@posts_size%>  Topics</h3>
 <h4 class ="text-right"><%=@users_size%> Users</h3>
 </div>
-</div>
 
 <%=render "religions"%>
-
+</div>
 
 <div data-no-turbolink>
-<%= link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'  %>
+<%= render_new_button  %>
 </div>
+
 <div id = "masonry-container" class="transitions-enabled infinite-scroll clearfix">
   <%= render @posts%>
 </div>

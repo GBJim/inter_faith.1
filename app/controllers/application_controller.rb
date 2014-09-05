@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
         fallback_redirect = "/"
       end
 
-      redirect_to fallback_redirect, flash: {error: "You must be signed in to view this page."}
+      render :js => "triggerLogin()"
     end
   end
 

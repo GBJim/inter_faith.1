@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	 before_filter :require_user_signed_in, only: [:create]
 
 	def create
 		@post = Post.find(params[:post_id])
