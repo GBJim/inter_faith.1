@@ -69,5 +69,5 @@ gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'masonry-rails'
 gem 'ransack'
-
-#ruby "2.1.1"
+gem 'rails_12factor', group: :production
+ruby "2.1.1"
