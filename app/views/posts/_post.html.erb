@@ -1,4 +1,4 @@
-<div class ="jumbothron box col4">
+<div class ="box col4">
 <ul class = "icon-list">
 
 <div class = "row">
@@ -15,6 +15,9 @@
 
 <%=raw post.body.truncate(300)%>
 <hr class ="divider">
+<%=raw post.embedder.html if post.embedder.present?%>
+<hr class ="divider">
+
 
 <%post.tag_list.each do |tag|%>
 <%=link_to "#"+tag+"  ", posts_path(:tag => tag ), :class => "tag"%>

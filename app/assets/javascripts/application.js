@@ -23,15 +23,6 @@
 //= require bootstrap
 
 
-$(function() {
-  return $('#masonry-container').imagesLoaded(function() {
-    return $('#masonry-container').masonry({
-      itemSelector: '.box',
-       position: 'relative'
-     
-    });
-  });
-});
 
 var modal;
 modal = function() {

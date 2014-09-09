@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: 1
+  favicon_url: MyString
+  author_name: MyString
+  author_url: MyString
+  provider_name: MyString
+  provider_url: MyString
+  : 
+  thumbnail_width: MyString
+  thumbnail_height: MyString
+  html: MyString
+  width: MyString
+  height: MyString
+
+two:
+  post_id: 1
+  favicon_url: MyString
+  author_name: MyString
+  author_url: MyString
+  provider_name: MyString
+  provider_url: MyString
+  : 
+  thumbnail_width: MyString
+  thumbnail_height: MyString
+  html: MyString
+  width: MyString
+  height: MyString

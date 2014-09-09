@@ -1,3 +1,11 @@
+$ ->
+	$("#masonry-container").masonry
+      itemSelector: ".box"
+      position: "relative"
+
+
+
+
 animation = ->
 	$('#masonry-container').masonry({ 
 	  isAnimated: true,

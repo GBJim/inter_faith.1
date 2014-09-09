@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825034042) do
+ActiveRecord::Schema.define(version: 20140909092708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,25 @@ ActiveRecord::Schema.define(version: 20140825034042) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "embedders", force: true do |t|
+    t.integer  "post_id"
+    t.string   "favicon_url"
+    t.string   "author_name"
+    t.string   "author_url"
+    t.string   "provider_name"
+    t.string   "provider_url"
+    t.string   "thumbnail_url"
+    t.string   "thumbnail_width"
+    t.string   "thumbnail_height"
+    t.text     "html"
+    t.string   "width"
+    t.string   "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "description"
+  end
+
   create_table "interest_ships", force: true do |t|
     t.integer  "religion_id"
     t.integer  "user_id"
@@ -99,7 +118,7 @@ ActiveRecord::Schema.define(version: 20140825034042) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
-    t.string   "image"
+    t.string   "url"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
