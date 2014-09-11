@@ -23,6 +23,10 @@ module PostsHelper
               :class => 'btn btn-danger' if current_user == @post.user
   end
 
+  def render_embedly(post)
+    raw post.embedder.html if post.embedder.present?
+  end
+
 
   def render_new_button
    link_to "Post a new topic", new_post_path, :class => 'new-post btn btn-primary btn-lg', remote: !user_signed_in?
