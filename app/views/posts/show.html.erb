@@ -20,6 +20,10 @@
 <%=link_to "#" do%><%= content_tag(:i,  @post.comments.size, class: "fa fa-comments pull-right") %></i> <%end%>
 </div>
 
+<%=render_embedly(@post)%>
+
+
+
 <% @post.tag_list.each do |list| %>
 <div class = "tags-container">
 <p><%=list%></p>
