@@ -62,6 +62,7 @@ end
 
 # my own gems:
 gem 'ckeditor_rails'
+gem 'omniauth-twitter'
 gem 'jquery-turbolinks'
 gem 'betterlorem'
 gem 'font-awesome-rails'
@@ -71,4 +72,5 @@ gem 'masonry-rails'
 gem 'ransack'
 gem 'embedly'
 gem 'rails_12factor', group: :production
+gem 'settingslogic'
 ruby "2.1.1"
