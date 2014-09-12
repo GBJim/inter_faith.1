@@ -1,0 +1,36 @@
+defaults: &defaults
+
+    mailGun:
+
+        user_name: 'postmaster@sandboxc333916381654a67b6ed41cb2d1184c2.mailgun.org'
+        password: '8m42lj8m46x4' 
+        domain: 'sandboxc333916381654a67b6ed41cb2d1184c2.mailgun.org'
+
+    stripe:
+        public_key: 'pk_test_4RY8g3kIJp1F6fiTLQeU4PaV'
+        secret_key: 'sk_test_4RY8vyrAFfdT4ltHri9UHjAJ'
+
+    facebook:
+        id: '275229172671164'
+        key: '96b99f7e359f9160d591ac714908a6e2'
+
+    devise:
+        key: 'fc841e3edf8602ec8e670cb94bd54ae0ee1c60a34aab1d91c82989fe19f3018fe8103fcc8f8ac5e83beeb29555d1cc992efc6ec4b9578142eb21296e62242df0'
+
+
+
+development:
+
+  <<: *defaults
+
+
+
+test:
+
+  <<: *defaults
+
+
+
+production:
+
+  <<: *defaults
