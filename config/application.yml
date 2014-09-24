@@ -16,7 +16,8 @@ defaults: &defaults
 
     devise:
         key: 'fc841e3edf8602ec8e670cb94bd54ae0ee1c60a34aab1d91c82989fe19f3018fe8103fcc8f8ac5e83beeb29555d1cc992efc6ec4b9578142eb21296e62242df0'
-
+    embedly:
+        key: '471fd397e889415ebb4e34f1ccb47ce3'
 
 
 development:

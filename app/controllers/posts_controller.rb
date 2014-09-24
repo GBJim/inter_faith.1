@@ -122,7 +122,7 @@ class PostsController < ApplicationController
     def create_embedly
       @post.embedder ||= Embedder.new
       link = @post.embedder
-      embedly_api = Embedly::API.new
+      embedly_api = Embedly::API.new :key => Settings.embedly.key
       embedly_objs = embedly_api.oembed(:url => @post.url)
       embedly_obj = embedly_objs[0]
       response_data = embedly_obj.marshal_dump
@@ -132,7 +132,7 @@ class PostsController < ApplicationController
       link.author_url        =  response_data[:author_url]
       link.provider_name     =  response_data[:provider_name]
       link.provider_url      =  response_data[:provider_url]
-      #link.description       =  response_data[:description]
+      link.type              =  response_data[:type]
       link.thumbnail_url     =  response_data[:thumbnail_url]
       link.thumbnail_width   =  response_data[:thumbnail_width]
       link.thumbnail_height  =  response_data[:thumbnail_height]

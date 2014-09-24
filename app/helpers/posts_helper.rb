@@ -24,7 +24,13 @@ module PostsHelper
   end
 
   def render_embedly(post)
-    raw post.embedder.html if post.embedder.present?
+    return nil unless post.embedder.present?
+    if post.embedder.resource_type == "video"
+      raw post.embedder.html if post.embedder.present?
+    elsif  
+      post.embedder.resource_type == "photo"
+      image_tag post.embedder.thumbnail_url
+    end
   end
 
 
